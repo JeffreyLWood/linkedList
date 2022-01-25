@@ -65,13 +65,19 @@ class LinkedList {
     let current = this.head;
     let previous;
     let count = 0;
-    while (count < idx) {
-      count++;
-      previous = current;
-      current = current.next;
+    if (idx === 0) {
+      this.head = current.next;
+      this.printListData();
+    } else {
+      while (count < idx) {
+        count++;
+        previous = current;
+        current = current.next;
+      }
+      previous.next = current.next;
+      this.printListData();
     }
-    previous.next = current.next;
-    this.printListData();
+    this.size--;
   }
 
   //Print
@@ -81,6 +87,18 @@ class LinkedList {
       console.log(current.data);
       current = current.next;
     }
+  }
+
+  //Clear List
+  clear() {
+    let current = this.head;
+    while (current) {
+      current.data = null;
+      current = current.next;
+      this.size--;
+    }
+    this.head = null;
+    return "List cleared";
   }
 }
 
@@ -93,4 +111,4 @@ ll.insertFirst(500);
 ll.insertFirst(600);
 ll.insertFirst(700);
 
-console.log(ll.removeAt(3));
+console.log(ll.printListData());
