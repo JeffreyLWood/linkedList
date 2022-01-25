@@ -27,10 +27,19 @@ class LinkedList {
   }
   //Insert at index
   insertAt(idx, data) {
-    let current = this.head;
+    if (idx > 0 && idx > this.size) {
+      return;
+    }
+    if (idx === 0) {
+      let newNode = new Node(data);
+      this.insertFirst(newNode);
+      return;
+    }
+
     let newNode = new Node(data);
+    let current = this.head;
     let count = 0;
-    while (count > idx) {
+    while (count < idx) {
       current = current.next;
       count++;
     }
@@ -69,4 +78,4 @@ ll.insertFirst(500);
 ll.insertFirst(600);
 ll.insertFirst(700);
 
-console.log(ll.insertAt(3, 7));
+console.log(ll.insertAt(2, 7));
