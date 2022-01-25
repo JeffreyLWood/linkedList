@@ -28,12 +28,12 @@ class LinkedList {
   //Insert at index
   insertAt(idx, data) {
     if (idx > 0 && idx > this.size) {
-      return;
+      return "Index not found";
     }
     if (idx === 0) {
       let newNode = new Node(data);
       this.insertFirst(newNode);
-      return;
+      this.printListData();
     }
 
     let newNode = new Node(data);
@@ -78,4 +78,4 @@ ll.insertFirst(500);
 ll.insertFirst(600);
 ll.insertFirst(700);
 
-console.log(ll.insertAt(2, 7));
+console.log(ll.insertAt(2, 777));
