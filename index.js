@@ -59,6 +59,21 @@ class LinkedList {
     }
     return current.data;
   }
+
+  //Remove at
+  removeAt(idx) {
+    let current = this.head;
+    let previous;
+    let count = 0;
+    while (count < idx) {
+      count++;
+      previous = current;
+      current = current.next;
+    }
+    previous.next = current.next;
+    this.printListData();
+  }
+
   //Print
   printListData() {
     let current = this.head;
@@ -78,4 +93,4 @@ ll.insertFirst(500);
 ll.insertFirst(600);
 ll.insertFirst(700);
 
-console.log(ll.insertAt(2, 777));
+console.log(ll.removeAt(3));
